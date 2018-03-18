@@ -26,22 +26,24 @@ def main():
 
     queue_instance.enqueue(
         fn=foo,
-        args=(10, "Task 1"),
+        args=(10, "this is Task 1"),
         task_id="Task 1"
     )
     queue_instance.enqueue(
         fn=foo,
-        args=(11, "Task 3"),
+        args=(11, "this is Task 3"),
         task_id="Task 3"
     )
     queue_instance.enqueue(
         fn=foo,
-        args=(4, "Task 2"),
+        args=(4, "this is Task 2"),
         task_id="Task 2"
     )
 
     while 1:
-        print("Task 1 is " + str(queue_instance.check_status("1")))
+        print("Task 1 is " + str(queue_instance.check_status("Task 1")))
+        print("Task 2 is " + str(queue_instance.check_status("Task 2")))
+        print("Task 3 is " + str(queue_instance.check_status("Task 3")))
         sleep(3)
 
 
